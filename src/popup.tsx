@@ -4,6 +4,11 @@ import { QueryClientProviderWrapper } from "~configs"
 
 import "./styles/index.css"
 
+import { Anti403 } from "~components"
+import Begzar from "~components/Begzar"
+import Shecan from "~components/Shecan"
+import VanillaApp from "~components/VanillaApp"
+
 function IndexPopup() {
   const [address, setAddress] = useState("")
 
@@ -26,10 +31,15 @@ function IndexPopup() {
 
   return (
     <div
-      className="py-5 flex justify-center bg-blue-950 text-white"
-      style={{ width: "300px", height: "300px" }}>
+      className="flex p-10 content-center bg-[#101010] text-white"
+      style={{ width: "350px", height: "350px" }}>
       <QueryClientProviderWrapper>
-        <div></div>
+        <div className="flex content-center justify-center flex-col">
+          <Anti403 />
+          <Shecan />
+          <Begzar />
+          <VanillaApp />
+        </div>
       </QueryClientProviderWrapper>
     </div>
   )
