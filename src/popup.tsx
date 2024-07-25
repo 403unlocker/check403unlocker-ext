@@ -4,42 +4,58 @@ import { QueryClientProviderWrapper } from "~configs"
 
 import "./styles/index.css"
 
-import { Anti403 } from "~components"
-import Begzar from "~components/Begzar"
-import Shecan from "~components/Shecan"
-import VanillaApp from "~components/VanillaApp"
+import { useGetBegzar, useGetShecan } from "~apis"
+import { Resource } from "~components/Resource"
+import { tabAddressToAddress } from "~utils/fn"
 
 function IndexPopup() {
-  const [address, setAddress] = useState("")
+  const [URI, setURI] = useState(null)
 
-  useEffect(
-    () =>
-      chrome.tabs.query(
-        {
-          active: true,
-          currentWindow: true
-        },
-        function (tabs) {
-          const tab = tabs[0]
-          if (tab.url) {
-            setAddress(tab.url)
+  useEffect(() => {
+    const fetchTabInfo = async () => {
+      return new Promise((resolve, reject) => {
+        chrome.tabs.query(
+          {
+            active: true,
+            currentWindow: true
+          },
+          function (tabs) {
+            const tab = tabs[0]
+            if (chrome.runtime.lastError) reject(chrome.runtime.lastError)
+            else resolve(tab)
           }
-        }
-      ),
-    [chrome]
-  )
+        )
+      })
+    }
+
+    fetchTabInfo()
+      .then((tab) => {
+        if (tab && typeof tab === "object" && "url" in tab)
+          if (tab.url) setURI(tabAddressToAddress(tab.url))
+      })
+      .catch((error) => {
+        console.error("Error fetching tab info:", error)
+      })
+  }, [chrome])
 
   return (
     <div
-      className="flex p-10 content-center bg-[#101010] text-white"
+      className="flex flex-col p-10 content-center bg-[#101010] text-white"
       style={{ width: "350px", height: "350px" }}>
+      <span className="text-2xl text-center py-3">{URI}</span>
       <QueryClientProviderWrapper>
-        <div className="flex content-center justify-center flex-col">
-          <Anti403 />
-          <Shecan />
-          <Begzar />
-          <VanillaApp />
-        </div>
+        {URI && (
+          <div className="flex content-center justify-center flex-col">
+            <Resource label="Begzar.ir: " mutator={useGetBegzar} URI={URI} />
+            <Resource label="Shecan.ir: " mutator={useGetShecan} URI={URI} />
+            <Resource label="403.online: " mutator={useGetShecan} URI={URI} />
+            <Resource
+              label="VanillaApp.ir: "
+              mutator={useGetShecan}
+              URI={URI}
+            />
+          </div>
+        )}
       </QueryClientProviderWrapper>
     </div>
   )
