@@ -46,14 +46,10 @@ function IndexPopup() {
       <QueryClientProviderWrapper>
         {URI && (
           <div className="flex content-center justify-center flex-col">
-            <Resource label="Begzar.ir: " mutator={useGetBegzar} URI={URI} />
-            <Resource label="Shecan.ir: " mutator={useGetShecan} URI={URI} />
-            <Resource label="403.online: " mutator={useGetShecan} URI={URI} />
-            <Resource
-              label="VanillaApp.ir: "
-              mutator={useGetShecan}
-              URI={URI}
-            />
+            <Resource label="Begzar.ir" mutator={useGetBegzar} URI={URI} />
+            <Resource label="Shecan.ir" mutator={useGetShecan} URI={URI} />
+            <Resource label="403.online" mutator={useGetShecan} URI={URI} />
+            <Resource label="VanillaApp.ir" mutator={useGetShecan} URI={URI} />
           </div>
         )}
       </QueryClientProviderWrapper>
