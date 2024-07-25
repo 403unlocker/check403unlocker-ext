@@ -42,7 +42,6 @@ function IndexPopup() {
     <div
       className="flex flex-col p-10 content-center bg-[#101010] text-white"
       style={{ width: "350px", height: "350px" }}>
-      <span className="text-2xl text-center py-3">{URI}</span>
       <QueryClientProviderWrapper>
         {URI && (
           <div className="flex content-center justify-center flex-col">
