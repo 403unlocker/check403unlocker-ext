@@ -4,7 +4,7 @@ import { QueryClientProviderWrapper } from "~configs"
 
 import "./styles/index.css"
 
-import { useGetBegzar, useGetShecan } from "~apis"
+import { useGetAnti403, useGetBegzar, useGetShecan, useVanillaApp } from "~apis"
 import { Resource } from "~components/Resource"
 import { tabAddressToAddress } from "~utils/fn"
 
@@ -41,14 +41,14 @@ function IndexPopup() {
   return (
     <div
       className="flex flex-col p-10 content-center bg-[#101010] text-white"
-      style={{ width: "350px", height: "350px" }}>
+      style={{ width: "350px", height: "300px" }}>
       <QueryClientProviderWrapper>
         {URI && (
           <div className="flex content-center justify-center flex-col">
             <Resource label="Begzar.ir" mutator={useGetBegzar} URI={URI} />
             <Resource label="Shecan.ir" mutator={useGetShecan} URI={URI} />
-            <Resource label="403.online" mutator={useGetShecan} URI={URI} />
-            <Resource label="VanillaApp.ir" mutator={useGetShecan} URI={URI} />
+            <Resource label="403.online" mutator={useGetAnti403} URI={URI} />
+            <Resource label="VanillaApp.ir" mutator={useVanillaApp} URI={URI} />
           </div>
         )}
       </QueryClientProviderWrapper>

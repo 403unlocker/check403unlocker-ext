@@ -5,8 +5,8 @@
   "description": "A basic Plasmo extension.",
   "author": "shayan",
   "scripts": {
-    "dev": "plasmo dev",
-    "build": "plasmo build",
+    "dev": "plasmo dev --env=.env.development",
+    "build": "plasmo build --env=.env.development",
     "package": "plasmo package"
   },
   "dependencies": {
