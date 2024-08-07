@@ -12,10 +12,11 @@ export const ResourceService: FC<Props> = ({ URI }) => {
   const { mutateAsync, data, isPending } = useServices()
 
   useEffect(() => {
+    console.log(URI)
     if (URL) mutateAsync({ url: URI })
   }, [])
 
-  const services = ["shecan", "anti403", "begzar"]
+  const services = ["shecan", "anti403", "begzar", "darzgir"]
 
   return (
     URI && (
