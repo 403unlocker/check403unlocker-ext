@@ -6,6 +6,7 @@ import "./styles/index.css"
 
 import { useGetAnti403, useGetBegzar, useGetShecan, useVanillaApp } from "~apis"
 import { Resource } from "~components/Resource"
+import { ResourceService } from "~components/ResourceService"
 import { tabAddressToAddress } from "~utils/fn"
 
 function IndexPopup() {
@@ -45,10 +46,7 @@ function IndexPopup() {
       <QueryClientProviderWrapper>
         {URI && (
           <div className="flex content-center justify-center flex-col">
-            <Resource label="Begzar.ir" mutator={useGetBegzar} URI={URI} />
-            <Resource label="Shecan.ir" mutator={useGetShecan} URI={URI} />
-            <Resource label="403.online" mutator={useGetAnti403} URI={URI} />
-            <Resource label="VanillaApp.ir" mutator={useVanillaApp} URI={URI} />
+            <ResourceService URI={URI} />
           </div>
         )}
       </QueryClientProviderWrapper>

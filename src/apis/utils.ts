@@ -29,3 +29,10 @@ export const useVanillaApp = () => {
     mutationFn: (query: queryType) => getApi(query, "vanillapp")
   })
 }
+
+export const useServices = () => {
+  return useMutation({
+    mutationKey: ["getServices"],
+    mutationFn: (query: queryType) => getApi(query, "services")
+  })
+}
