@@ -3,7 +3,8 @@
 1. **Download the Extension**: Clone or download the project files from the repository.
 2. **Open Chrome Extensions Page**: Go to `chrome://extensions/` in your Chrome browser.
 3. **Enable Developer Mode**: Toggle the Developer mode switch on the top right.
-4. **Load Unpacked**: Click on the "Load unpacked" button and select the directory where you downloaded the check403unlocker-ext files.
+4. **Run Application**: install pnpm If is not install and Run the application using `pnpm run dev` (make sure backend service running well at first).
+5. **Load Unpacked**: Click on the "Load unpacked" button and select the directory where you downloaded the check403unlocker-ext files and choose the `build/chrome-mv3-dev` Directory.
 
 Now check403unlocker-ext is ready to use!
 
