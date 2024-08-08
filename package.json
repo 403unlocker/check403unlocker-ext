@@ -6,7 +6,7 @@
   "author": "shayan",
   "scripts": {
     "dev": "plasmo dev --env=.env.development",
-    "build": "plasmo build --env=.env.development",
+    "build": "plasmo build --env=.env.production",
     "package": "plasmo package"
   },
   "dependencies": {
