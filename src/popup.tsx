@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 import { QueryClientProviderWrapper } from "~configs"
 
 import "./styles/index.css"
+import "toastify-js/src/toastify.css"
 
-import { useGetAnti403, useGetBegzar, useGetShecan, useVanillaApp } from "~apis"
 import { Resource } from "~components/Resource"
 import { ResourceService } from "~components/ResourceService"
 import { tabAddressToAddress } from "~utils/fn"
@@ -42,14 +42,13 @@ function IndexPopup() {
   return (
     <div
       className="flex flex-col p-10 content-center bg-[#101010] text-white"
-      style={{ width: "350px", height: "300px" }}>
+      style={{ width: "350px", height: "330px" }}>
       <QueryClientProviderWrapper>
-        {URI && (
-          <div className="flex content-center justify-center flex-col">
-            <ResourceService URI={URI} />
-          </div>
-        )}
+        {URI && <ResourceService URI={URI} />}
       </QueryClientProviderWrapper>
+      <div className="text-center py-3">
+        <p>وقت تو با ارزشه، دور زدن تحریم رو بسپار به ابزارها</p>
+      </div>
     </div>
   )
 }
