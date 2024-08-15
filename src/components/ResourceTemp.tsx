@@ -23,7 +23,6 @@ const ResourceTemp: FC<Props> = ({
     navigator.clipboard.writeText(dns)
     Toastify({
       text: "کپی شد",
-
       duration: 3000,
       style: {
         background: "#2bd3bf",
@@ -33,10 +32,11 @@ const ResourceTemp: FC<Props> = ({
   }
 
   return (
-    <div className="flex flex-row justify-between items-center">
-      <span className="text-2xl text-[#2bd3bf] font-medium py-3 ">
+    <div
+      className={`flex flex-row justify-between items-center ${IsPending ? "text-[#2bd3bf]" : IsSuccess ? "text-[#2bd3bf]" : "text-[#FF073A]"}`}>
+      <span className={`text-2xl font-medium py-3 `}>
         <a className="pr-2 cursor-pointer" href={ResouceURL}>
-          {Label}:{" "}
+          {Label}
         </a>
       </span>
       <div className="flex flex-row justify-between items-center">

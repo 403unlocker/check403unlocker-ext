@@ -22,6 +22,8 @@ export const Resource: FC<Props> = ({ URI, label, mutator }) => {
         Label={label}
         IsPending={isPending}
         IsSuccess={data.IsSuccess}
+        ResouceURL={""}
+        dns={""}
       />
     )
   )
