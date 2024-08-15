@@ -2,7 +2,7 @@
   "name": "Check403unlocker",
   "displayName": "Check403unlocker",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "description": "Check 403 Unlocker",
   "author": "shayan",
   "scripts": {
     "dev": "plasmo dev --env=.env.development",
