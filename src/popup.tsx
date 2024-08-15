@@ -42,7 +42,7 @@ function IndexPopup() {
   return (
     <div
       className="flex flex-col p-10 content-center bg-[#101010] text-white"
-      style={{ width: "350px", height: "330px" }}>
+      style={{ width: "350px", height: "380px" }}>
       <QueryClientProviderWrapper>
         {URI && <ResourceService URI={URI} />}
       </QueryClientProviderWrapper>

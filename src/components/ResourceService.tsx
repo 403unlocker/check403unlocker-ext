@@ -19,7 +19,6 @@ export const ResourceService: FC<Props> = ({ URI }) => {
   const { mutateAsync, data, isPending } = useServices()
 
   useEffect(() => {
-    console.log(URI)
     if (URL) mutateAsync({ url: URI })
   }, [])
 
@@ -47,13 +46,19 @@ export const ResourceService: FC<Props> = ({ URI }) => {
       address: "https://darzg.ir",
       srcName: "darzgir",
       dns: "37.27.41.228"
+    },
+    {
+      label: "vanillapp.ir",
+      address: "https://vanillapp.ir/",
+      srcName: "vanillapp",
+      dns: ""
     }
   ]
 
   return (
     URI && (
       <div>
-        <span className="text-2xl text-[#2bd3bf] font-medium py-3">
+        <span className="text-2xl font-medium py-3 ">
           <div>
             {services.map(({ label, address, srcName, dns }, index) => (
               <ResourceTemp
