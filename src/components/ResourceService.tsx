@@ -13,6 +13,7 @@ type ServiceType = {
   address: string
   srcName: string
   dns: string
+  doh?: string
 }[]
 
 export const ResourceService: FC<Props> = ({ URI }) => {
@@ -27,13 +28,15 @@ export const ResourceService: FC<Props> = ({ URI }) => {
       label: "shecan.ir",
       address: "https://shecan.ir",
       srcName: "shecan",
-      dns: "178.22.122.100 – 185.51.200.2"
+      dns: "178.22.122.100 – 185.51.200.2",
+      doh: "https://free.shecan.ir/dns-query"
     },
     {
       label: "403.online",
       address: "https://403.online",
       srcName: "anti403",
-      dns: "10.202.10.202 – 10.202.10.102"
+      dns: "10.202.10.202 – 10.202.10.102",
+      doh: "https://dns.403.online/dns-query"
     },
     {
       label: "begzar.ir",
@@ -60,14 +63,15 @@ export const ResourceService: FC<Props> = ({ URI }) => {
       <div>
         <span className="text-2xl font-medium py-3 ">
           <div>
-            {services.map(({ label, address, srcName, dns }, index) => (
+            {services.map(({ label, address, srcName, dns, doh }, index) => (
               <ResourceTemp
                 key={index}
-                Label={label}
-                IsPending={isPending}
-                ResouceURL={address}
                 IsSuccess={data?.services[srcName]}
+                IsPending={isPending}
+                Label={label}
+                ResouceURL={address}
                 dns={dns}
+                doh={doh}
               />
             ))}
           </div>
