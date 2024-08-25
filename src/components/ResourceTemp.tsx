@@ -10,6 +10,7 @@ type Props = {
   IsSuccess: boolean
   ResouceURL: string
   dns: string
+  doh?: string
 }
 
 const ResourceTemp: FC<Props> = ({
@@ -17,10 +18,11 @@ const ResourceTemp: FC<Props> = ({
   IsPending,
   IsSuccess,
   ResouceURL,
-  dns
+  dns,
+  doh
 }) => {
-  const CopyDnsHandler = (dns) => {
-    navigator.clipboard.writeText(dns)
+  const CopyHandler = (value) => {
+    navigator.clipboard.writeText(value)
     Toastify({
       text: "کپی شد",
       duration: 3000,
@@ -47,7 +49,17 @@ const ResourceTemp: FC<Props> = ({
           icon="hugeicons:copy-link"
           className="text-2xl cursor-pointer"
           onClick={() => {
-            CopyDnsHandler(dns)
+            CopyHandler(dns)
+          }}
+        />
+        <Icon
+          icon="grommet-icons:connect"
+          className={`text-2xl ${doh == null ? "cursor-default text-gray-500" : "cursor-pointer"}`}
+          onClick={() => {
+            if (doh) {
+              CopyHandler(doh)
+              chrome.tabs.create({ url: "chrome://settings/security" })
+            }
           }}
         />
       </div>
