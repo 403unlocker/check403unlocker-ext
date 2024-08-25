@@ -1,7 +1,7 @@
 {
   "name": "Check403unlocker",
   "displayName": "Check403unlocker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Check 403 Unlocker",
   "author": "shayan",
   "scripts": {
