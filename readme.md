@@ -9,6 +9,12 @@
 
 Now check403unlocker-ext is ready to use!
 
+## Installation
+
+- Install from chrome store
+
+<a href="https://chromewebstore.google.com/detail/check403unlocker/elmlgegphdbjnofpobhkinmjnofkdmne"><img align=top src="https://github.com/user-attachments/assets/12b61e1c-c152-4111-b8b5-87e66abc4e6c"/></a>
+
 ## Contact
 
 My social media - [@ShayanVosoughi](https://twitter.com/ShayanVosoughi) - shayanwqhw@gmail.com
