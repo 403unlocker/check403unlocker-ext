@@ -13,13 +13,15 @@ type Props = {
   doh?: string
 }
 
-const ResourceTemp: FC<Props> = ({
+const ResourceTemp: FC<Props & { dot?: string; ipv6?: string }> = ({
   Label,
   IsPending,
   IsSuccess,
   ResouceURL,
   dns,
-  doh
+  doh,
+  dot,
+  ipv6
 }) => {
   const CopyHandler = (value) => {
     navigator.clipboard.writeText(value)
@@ -41,6 +43,12 @@ const ResourceTemp: FC<Props> = ({
           {Label}
         </a>
       </span>
+      <div className="text-sm mt-1">
+        <div><b>DNS:</b> {dns}</div>
+        {dot && <div><b>DoT:</b> {dot}</div>}
+        {ipv6 && <div><b>IPv6:</b> {ipv6}</div>}
+        {doh && <div><b>DoH:</b> {doh}</div>}
+      </div>
       <div className="flex flex-row justify-between items-center">
         <IconGenerator
           icon={IsPending ? "loading" : IsSuccess ? "tick" : "cross"}
