@@ -24,11 +24,11 @@ yarn-error.log*
 .env.production
 
 out/
-build/
+# build/
 dist/
 
 # plasmo
-.plasmo
+# .plasmo
 
 # typescript
 .tsbuildinfo

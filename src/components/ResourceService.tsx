@@ -130,16 +130,40 @@ const services: ServiceType = [
   }
 ]
 
+  if (!URI) return null;
+
+  // وضعیت بارگذاری یا خطا
+  if (isPending) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[200px]">
+        <span className="text-[#2bd3bf] text-lg font-medium">در حال دریافت اطلاعات سرویس‌ها...</span>
+      </div>
+    );
+  }
+
+  // اگر داده نیامده یا سرویس‌ها undefined بود
+  if (!data || !data.services) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[200px]">
+        <span className="text-[#FF073A] text-lg font-medium">خطا در دریافت اطلاعات سرویس‌ها یا هیچ داده‌ای موجود نیست.</span>
+      </div>
+    );
+  }
+
   return (
-    URI && (
-      <div>
-        <span className="text-2xl font-medium py-3 ">
-          <div>
-            {services.map(({ label, address, srcName, dns, doh, dot, ipv6 }, index) => (
+    <div>
+      <span className="text-2xl font-medium py-3 ">
+        <div className="flex flex-col gap-4">
+          {services.map(({ label, address, srcName, dns, doh, dot, ipv6 }, index) => {
+            // اگر مقدار undefined بود، وضعیت pending نمایش بده
+            const status = data.services.hasOwnProperty(srcName)
+              ? data.services[srcName]
+              : undefined;
+            return (
               <ResourceTemp
                 key={index}
-                IsSuccess={data?.services[srcName]}
-                IsPending={isPending}
+                IsSuccess={status === true}
+                IsPending={status === undefined}
                 Label={label}
                 ResouceURL={address}
                 dns={dns}
@@ -147,10 +171,10 @@ const services: ServiceType = [
                 dot={dot}
                 ipv6={ipv6}
               />
-            ))}
-          </div>
-        </span>
-      </div>
-    )
-  )
+            );
+          })}
+        </div>
+      </span>
+    </div>
+  );
 }
