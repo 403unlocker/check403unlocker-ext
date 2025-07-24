@@ -22,7 +22,7 @@ const DEMO_DATA = {
   }
 }
 
-const IS_DEMO = true // اگر true باشد، داده تستی استفاده می‌شود
+const IS_DEMO = false // اگر true باشد، داده تستی استفاده می‌شود
 
 type Props = {
   URI: string
