@@ -41,12 +41,12 @@ function IndexPopup() {
 
   return (
     <div
-      className="flex flex-col p-10 content-center bg-[#101010] text-white"
-      style={{ width: "350px", height: "380px" }}>
+      className="flex flex-col p-4 content-center bg-[#161616] text-white rounded-xl shadow-lg"
+      style={{ width: "320px", height: "360px", fontFamily: 'Vazirmatn, Tahoma, Arial', fontSize: "14px" }}>
       <QueryClientProviderWrapper>
         {URI && <ResourceService URI={URI} />}
       </QueryClientProviderWrapper>
-      <div className="text-center py-3">
+      <div className="text-center py-2 mt-2 text-xs opacity-80">
         <p>وقت تو با ارزشه، دور زدن تحریم رو بسپار به ابزارها</p>
       </div>
     </div>

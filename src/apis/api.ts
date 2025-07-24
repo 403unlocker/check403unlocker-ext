@@ -11,6 +11,7 @@ export const getApi = async (query: queryType, resource: string) => {
       )
     ).data
   } catch (e: any) {
-    console.log(e)
+    console.error("API Error:", e)
+    return { services: {} }
   }
 }
