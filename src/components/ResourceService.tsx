@@ -42,7 +42,7 @@ export const ResourceService: FC<Props> = ({ URI }) => {
       label: "begzar.ir",
       address: "https://begzar.ir",
       srcName: "begzar",
-      dns: "185.55.226.26 – 185.55.225.25"
+      dns: "185.55.226.26 – 185.55.225.25 - 185.55.224.24"
     },
     {
       label: "darzg.ir",
